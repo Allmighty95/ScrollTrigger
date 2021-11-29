@@ -1,0 +1,23 @@
+nombre: Construir
+sobre:
+  empujar:
+    sucursales:
+      - master # o el nombre de su rama principal
+trabajos:
+  construir:
+    nombre: Construir
+    se ejecuta: ubuntu-latest
+    pasos:
+      - usos: acciones / pago @ v2
+        con:
+          profundidad de alcance: 0
+      - usos: sonarsource / sonarqube-scan-action @ master
+        env:
+          SONAR_TOKEN: $ {{secretos.SONAR_TOKEN}}
+          SONAR_HOST_URL: $ {{secretos.SONAR_HOST_URL}}
+      # Si desea fallar en su trabajo cuando el Quality Gate está rojo, descomente el
+      # líneas siguientes. Por lo general, esto se usaría para fallar en una implementación.
+      # - usos: sonarsource / sonarqube-quality-gate-action @ master
+      # minutos de tiempo de espera: 5
+      # env:
+      # SONAR_TOKEN: $ {{secretos.SONAR_TOKEN}}
