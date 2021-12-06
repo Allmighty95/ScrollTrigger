@@ -39,9 +39,9 @@ const App = () => {
     <div className="App">
       <Boxes>
         <div className="box box1">
-          <h1>Box 1</h1>
-        </div>
-      </Boxes>
+          <h1> Box 1 </h1>{" "}
+        </div>{" "}
+      </Boxes>{" "}
     </div>
   );
 };
